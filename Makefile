@@ -22,4 +22,5 @@ docker:
 	docker build -t locust:1.0.0 .
 
 run: docker
-	docker run -v $(PWD):/home/locust --rm -p 8089:8089 locust:1.0.0
+	docker rm -f locust-dev 2>/dev/null || true
+	docker run --name locust-dev -v $(PWD):/home/locust --rm -p 8089:8089 locust:1.0.0

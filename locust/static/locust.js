@@ -194,3 +194,18 @@ function updateExceptions() {
     });
 }
 updateExceptions();
+
+payload = {
+    "get": "foo=bar&x=y",
+    "post": "{'foo': 'bar', 'x': 'y'}",
+    "grpc": "message helloworld \
+    { \
+       required int32     id = 1;  // ID \
+       required string    str = 2;  // str \
+       optional int32     opt = 3;  //optional field \
+    }",
+}
+function methodChange() {
+    var x = document.getElementById("method").value;
+    document.getElementById("payload").value = payload[x];
+}
