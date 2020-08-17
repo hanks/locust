@@ -15,3 +15,9 @@ build_docs:
 
 changelog:
 	python3 generate_changelog.py
+
+docker:
+	docker build -t locust:1.0.0 .
+
+run: docker
+	docker run -v $(pwd):/home/locust --rm -p 8089:8089 locust:1.0.0
